@@ -1,0 +1,7 @@
+config/
+# .bash_aliases
+.dockerignore
+docker-compose.yaml
+Dockerfile
+# entrypoint.sh
+README.md
