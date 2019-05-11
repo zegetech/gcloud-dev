@@ -1,5 +1,5 @@
 # Setting up Gcloud K8 isolated project environment
-This container is used to isolate gcloud environments with their projects. 
+This container is used to isolate gcloud environments within a project. Allows for multiple project work, safely at the same time.
 
 ## Set up you project
 Project folder (app) should be peers with this.
@@ -7,13 +7,16 @@ Project folder (app) should be peers with this.
 ---|---_k8
    |---app
 ```
-If previously set up then run 
+
+Run command from the _k8 folder
 ```bash
-docker-compose run <your-service> bash
+$ cd _k8
+$ docker-compose run <your-service> bash
 ```
 
-## 1. Set up your service and the ENV variables in docker-cpmpose.yaml and build the container
-Can be skipped if the container is arealy in the image registry on local machine	
+
+## 1. Set up docker-compose.yaml and build the container
+Can be skipped if the container is already in the image registry on local machine. If so, comment out the `build: .` in docker-compose
 ```bash
 docker-compose build
 ```

@@ -3,8 +3,7 @@ version: '3'
 services:
   gk8:
     # command: tail -f /dev/null
-    build: .
-    image: kariz/gcloud_k8
+    image: kariz/gcloud-dev
     # hostname: vpn
     # network_mode: bridge
     volumes:
