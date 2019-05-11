@@ -14,27 +14,21 @@ $ cd _k8
 $ docker-compose run <your-service> bash
 ```
 
-
-## 1. Set up docker-compose.yaml and build the container
-Can be skipped if the container is already in the image registry on local machine. If so, comment out the `build: .` in docker-compose
-```bash
-docker-compose build
-```
-## 2. Login to Gcloud account
+## 1. Login to Gcloud account
 
 ```bash
 docker-compose run --entrypoint '' <your-service> gcloud auth login 
 ```
 Log into your prefered gcloud account
 
-## 3. Container is ready to run. 
-Log into the contaier bash
+## 2. Work with your project isolated
+Log into the contaier bash to start working on your project
 ```bash
 docker-compose run <your-service> bash
 ```
 
-# COMMAND
-## 4. Create cluster
+# Cheat Sheet
+### Create cluster
 ```bash
 gcloud container clusters list
 gcloud container clusters create $CLUSTER \
@@ -42,28 +36,28 @@ gcloud container clusters create $CLUSTER \
 		--machine-type $NODE_TYPE
 ```
 
-## 5. View configurations
+### View configurations
 ```bash
 gcloud config list
 gcloud config configurations list
 gcloud projects list
 ```
 
-## 6. Authorize Kubectl
+### Authorize Kubectl
 ```bash
 gcloud container clusters get-credentials $CLUSTER --zone $ZONE
 ```
 
-## 7. Delete cluster
+### Delete cluster
 ```bash
 gcloud container clusters delete $CLUSTER
 ```
 
-## Create Static IP
-gcloud compute addresses create pritunl-ip --global
-gcloud compute addresses describe pritunl-ip --global
+### Create Static IP
+gcloud compute addresses create <ip-name> --global
+gcloud compute addresses describe <ip-name> --global
 
-gcloud compute addresses delete pritunl-ip
+gcloud compute addresses delete <ip-name>
 
 
 Cheatsheet [here](https://gist.github.com/pydevops/cffbd3c694d599c6ca18342d3625af97)

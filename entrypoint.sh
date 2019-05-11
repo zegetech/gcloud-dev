@@ -26,7 +26,7 @@ if [[ "$ALL_CLUSTER" == *"$CLUSTER_NAME"* ]]; then
 	echo "Setting up gcloud and kubectl credentials"
 	gcloud container clusters get-credentials $CLUSTER_NAME --zone $ZONE
 
-	echo "Updating resource(s) in all manifest files in dir"
+	# echo "Updating resource(s) in all manifest files in dir"
 else
 	echo "Cluster does not exist. We shall create cluster $CLUSTER_NAME now"
 	gcloud container clusters create $CLUSTER_NAME \
