@@ -54,6 +54,7 @@ gcloud container clusters delete $CLUSTER
 ```
 
 ### Create Static IP
+global ip
 gcloud compute addresses create <ip-name> --global
 gcloud compute addresses describe <ip-name> --global
 
@@ -61,3 +62,6 @@ gcloud compute addresses delete <ip-name>
 
 
 Cheatsheet [here](https://gist.github.com/pydevops/cffbd3c694d599c6ca18342d3625af97)
+
+## Calico CNI
+https://kubernetes.io/docs/tasks/administer-cluster/network-policy-provider/calico-network-policy/

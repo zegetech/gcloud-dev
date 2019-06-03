@@ -29,7 +29,7 @@ if [[ "$ALL_CLUSTER" == *"$CLUSTER_NAME"* ]]; then
 	# echo "Updating resource(s) in all manifest files in dir"
 else
 	echo "Cluster does not exist. We shall create cluster $CLUSTER_NAME now"
-	gcloud container clusters create $CLUSTER_NAME \
+	gcloud container clusters create $CLUSTER_NAME $CLUSTER_FLAGS \
 		--num-nodes $CLUSTER_NODES \
 		--machine-type $NODE_TYPE \
 		--image-type $NODE_IMAGE
