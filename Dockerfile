@@ -2,6 +2,8 @@ FROM google/cloud-sdk:alpine
 LABEL maintainer="Kariuki Gathitu <kgathi2@gmail.com>"
 LABEL version="1.0"
 
+ENV VERSION 0.0.2
+
 RUN gcloud components install kubectl
 RUN mkdir gke
 WORKDIR /gke
