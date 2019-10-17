@@ -4,7 +4,7 @@ chmod u+x /bin/k
 
 
 echo '#! /bin/sh'                >> /bin/ka
-echo 'kubectl apply -f $@' >> /bin/ka
+echo 'kubectl apply $@' >> /bin/ka
 chmod u+x /bin/ka
 
 

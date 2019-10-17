@@ -32,10 +32,10 @@ services:
       - CLOUDSDK_CONFIG=/.gcloud
       # Check latency with http://www.gcping.com/ for fastest region
       - REGION=us-west1
-      - PROFILE=careflow
+      - PROFILE=my-profile
       - ZONE=us-west1-a
-      - PROJECT=whs-careflow
-      - CLUSTER_NAME=staging-1
+      - PROJECT=project-name
+      - CLUSTER_NAME=cluster-name
       - CLUSTER_NODES=1
       - NODE_TYPE=n1-standard-1 # g1-small n1-standard-1, n1-highmem-2
       - NODE_IMAGE=cos #cos, cosd, ubuntu
@@ -85,6 +85,29 @@ docker exec -it docker-container-id bash;
 ```
 
 # Cheat Sheet
+
+### kubectl bash aliaes
+The docker container is configured witha number of aliases to reduce typing. 
+```bash
+k     # kubectl $@
+ka    # kubectl apply $@
+kg    # kubectl get $@
+kgn   # kubectl get nodes
+kgnw  # kubectl get nodes -o wide
+kgnl  # kubectl get nodes --show-labels
+kgp   # kubectl get pods
+kgs   # kubectl get svc
+kgd   # kubectl get deployments
+kcf   # kubectl create -f $@
+kd    # kubectl delete $@
+kdes  # kubectl describe $@
+kdf   # kubectl delete -f $@
+kaf   # kubectl apply -f $@
+kgpa  # kubectl get pods --all-namespaces
+kssh  # kubectl exec -it $@ -- /bin/sh 
+kbash # kubectl exec -it $@ -- /bin/bash
+
+```
 
 ### Create cluster
 
