@@ -4,6 +4,7 @@ LABEL version="1.0"
 
 ENV VERSION 0.0.2
 
+RUN apk add jq
 RUN gcloud components install kubectl
 RUN mkdir gke
 WORKDIR /gke

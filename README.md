@@ -26,8 +26,8 @@ services:
     image: kgathi2/gcloud-dev
     volumes:
       - ./.gcloud:/.gcloud
-	  - ./:/gke
-	#   - ./entrypoint.sh:/tmp/entrypoint.sh # optional if overriding gcloud setup
+	    - ./:/gke
+	    # - ./entrypoint.sh:/tmp/entrypoint.sh # optional if overriding gcloud setup
     environment:
       - CLOUDSDK_CONFIG=/.gcloud
       # Check latency with http://www.gcping.com/ for fastest region
@@ -41,11 +41,11 @@ services:
       - NODE_IMAGE=cos #cos, cosd, ubuntu
 
 ```
-Ignore gcloud logs in `.gitignore`
+Ignore .gcloud  in `.gitignore`
 ```
-logs
+.gcloud
 ```
-Run command from the \gke folder
+Run command from the gke folder
 
 ```bash
 $ cd gke
