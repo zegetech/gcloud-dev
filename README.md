@@ -23,11 +23,11 @@ version: '3'
 services:
   project_service:
     command: tail -f /dev/null
-    image: kgathi2/gcloud-dev
+    image: kgathi2/gcloud-dev:latest
     volumes:
       - ./.gcloud:/.gcloud
-	    - ./:/gke
-	    # - ./entrypoint.sh:/tmp/entrypoint.sh # optional if overriding gcloud setup
+      - ./:/gke
+      # - ./entrypoint.sh:/tmp/entrypoint.sh # optional if overriding gcloud setup
     environment:
       - CLOUDSDK_CONFIG=/.gcloud
       # Check latency with http://www.gcping.com/ for fastest region
@@ -67,7 +67,7 @@ To override the entrypoint, mount a volume with the file `entrypoint.sh` with yo
 ```yaml
 ...
 volumes:
-	- ./entrypoint.sh:/tmp/entrypoint.sh
+  - ./entrypoint.sh:/tmp/entrypoint.sh
 ...
 ```
 Make sure that your file is executable `chmod a+x entrypoint.sh`
