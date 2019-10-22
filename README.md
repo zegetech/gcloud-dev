@@ -79,15 +79,15 @@ Log into the contaier bash to start working on your project
 ```bash
 docker-compose run <your-service> bash
 # or
-docker-compose up <your-service>
+docker-compose up -d <your-service>
 docker ps
 docker exec -it docker-container-id bash;
 ```
 
 # Cheat Sheet
 
-### kubectl bash aliaes
-The docker container is configured witha number of aliases to reduce typing. 
+### kubectl bash aliases
+The docker container is configured with a number of aliases to reduce typing. 
 ```bash
 k     # kubectl $@
 ka    # kubectl apply $@
@@ -113,7 +113,7 @@ kbash # kubectl exec -it $@ -- /bin/bash
 
 ```bash
 gcloud container clusters list
-gcloud container clusters create $CLUSTER \
+gcloud container clusters create $CLUSTER_NAME \
 		--num-nodes $CLUSTER_NODES \
 		--machine-type $NODE_TYPE
 ```
@@ -129,23 +129,24 @@ gcloud projects list
 ### Authorize Kubectl
 
 ```bash
-gcloud container clusters get-credentials $CLUSTER --zone $ZONE
+gcloud container clusters get-credentials $CLUSTER_NAME --zone $ZONE
 ```
 
 ### Delete cluster
 
 ```bash
-gcloud container clusters delete $CLUSTER
+gcloud container clusters delete $CLUSTER_NAME
 ```
 
 ### Create Static IP
 
 global ip
+```bash
 gcloud compute addresses create <ip-name> --global
 gcloud compute addresses describe <ip-name> --global
 
 gcloud compute addresses delete <ip-name>
-
+```
 Cheatsheet [here](https://gist.github.com/pydevops/cffbd3c694d599c6ca18342d3625af97)
 
 ## Calico CNI
