@@ -112,10 +112,13 @@ kbash # kubectl exec -it $@ -- /bin/bash
 ### Create cluster
 
 ```bash
+gcloud container get-server-config # get availabel cluster versions
 gcloud container clusters list
-gcloud container clusters create $CLUSTER_NAME \
+gcloud container clusters create $CLUSTER_NAME $CLUSTER_FLAGS \
 		--num-nodes $CLUSTER_NODES \
-		--machine-type $NODE_TYPE
+		--machine-type $NODE_TYPE \
+		--image-type $NODE_IMAGE \
+		--cluster-version $CLUSTER_VERSION
 ```
 
 ### View configurations
@@ -141,12 +144,15 @@ gcloud container clusters delete $CLUSTER_NAME
 ### Create Static IP
 
 global ip
+
 ```bash
+gcloud compute addresses create <ip-name> --regional
 gcloud compute addresses create <ip-name> --global
 gcloud compute addresses describe <ip-name> --global
 
 gcloud compute addresses delete <ip-name>
 ```
+
 Cheatsheet [here](https://gist.github.com/pydevops/cffbd3c694d599c6ca18342d3625af97)
 
 ## Calico CNI

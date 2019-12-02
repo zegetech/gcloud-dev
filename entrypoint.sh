@@ -32,7 +32,8 @@ else
 	gcloud container clusters create $CLUSTER_NAME $CLUSTER_FLAGS \
 		--num-nodes $CLUSTER_NODES \
 		--machine-type $NODE_TYPE \
-		--image-type $NODE_IMAGE
+		--image-type $NODE_IMAGE \
+		--cluster-version $CLUSTER_VERSION
 
 	# kubectl create -f $RESOURCE_DIR --record --save-config
 	# echo "Creating resource(s) in all manifest files in $RESOURCE_DIR"

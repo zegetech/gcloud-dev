@@ -18,6 +18,7 @@ services:
       - PROFILE=ipsec-l2tpd
       - ZONE=europe-west6-a
       - PROJECT=ipsec-vpn-239415
+      - CLUSTER_VERSION=1.14.8-gke.17
       - CLUSTER_NAME=vpn-1
       - CLUSTER_NODES=1
       - NODE_TYPE=g1-small # n1-standard-1, n1-highmem-2
