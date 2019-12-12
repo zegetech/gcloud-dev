@@ -119,6 +119,8 @@ gcloud container clusters create $CLUSTER_NAME $CLUSTER_FLAGS \
 		--machine-type $NODE_TYPE \
 		--image-type $NODE_IMAGE \
 		--cluster-version $CLUSTER_VERSION
+
+kubectl version # check kubernetes versions
 ```
 
 ### View configurations

@@ -21,6 +21,8 @@ services:
       - CLUSTER_VERSION=1.14.8-gke.17
       - CLUSTER_NAME=vpn-1
       - CLUSTER_NODES=1
+      # https://cloud.google.com/compute/all-pricing
+      # e2-standard-2, e2-highmem-2
       - NODE_TYPE=g1-small # n1-standard-1, n1-highmem-2
       - NODE_IMAGE=ubuntu #cos, cosd, ubuntu
       - ClUSTER_FLAGS=--enable-network-policy
