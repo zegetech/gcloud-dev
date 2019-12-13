@@ -30,15 +30,16 @@ services:
       # - ./entrypoint.sh:/tmp/entrypoint.sh # optional if overriding gcloud setup
     environment:
       - CLOUDSDK_CONFIG=/.gcloud
-      # Check latency with http://www.gcping.com/ for fastest region
-      - REGION=us-west1
-      - PROFILE=my-profile
-      - ZONE=us-west1-a
-      - PROJECT=project-name
-      - CLUSTER_NAME=cluster-name
+      - REGION=europe-west6
+      - ZONE=europe-west6-a
+      - PROJECT=my-project
+      - CLUSTER_VERSION=1.14.8-gke.17
+      - CLUSTER_NAME=vpn-1
       - CLUSTER_NODES=1
-      - NODE_TYPE=n1-standard-1 # g1-small n1-standard-1, n1-highmem-2
-      - NODE_IMAGE=cos #cos, cosd, ubuntu
+      - NODE_TYPE=n1-standard-1
+      - NODE_IMAGE=cos
+      - ClUSTER_FLAGS=--enable-network-policy
+        --something else
 
 ```
 Ignore .gcloud  in `.gitignore`
@@ -51,6 +52,26 @@ Run command from the gke folder
 $ cd gke
 $ docker-compose run project_service bash
 ```
+### Choosing a region
+Your Kubernetes nodes should be located closest to your users for lowest latency. To check latency of Gcloud regions go to [http://www.gcping.com/](http://www.gcping.com/). 
+europe-west6 (Zürich, Switzerland a,b,c) is fastest
+europe-west1 (St. Ghislain, Belgium b,c,d) has more features
+
+### Choosing a Node type
+GCP have various node types [here](https://cloud.google.com/compute/all-pricing). A few common are 
+
+- g1-small 
+- n1-standard-1
+- n1-highmem-2
+- e2-standard-2
+- e2-highmem-2
+
+### Choosing a Node Image
+Available Node images are
+
+- cos 
+- cosd
+- ubuntu
 
 ## 1. Login to Gcloud account
 

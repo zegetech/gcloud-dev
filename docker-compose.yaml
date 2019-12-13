@@ -12,22 +12,13 @@ services:
       - ../app:/app
     environment:
       - CLOUDSDK_CONFIG=/.gcloud
-      # Check latency with http://www.gcping.com/ for fastest region
-      # - REGION=europe-west1 #St. Ghislain, Belgium b,c,d more features
-      - REGION=europe-west6 #Zürich, Switzerland a,b,c fastest
-      - PROFILE=ipsec-l2tpd
+      - REGION=europe-west6
       - ZONE=europe-west6-a
       - PROJECT=ipsec-vpn-239415
       - CLUSTER_VERSION=1.14.8-gke.17
       - CLUSTER_NAME=vpn-1
       - CLUSTER_NODES=1
-      # https://cloud.google.com/compute/all-pricing
-      # e2-standard-2, e2-highmem-2
-      - NODE_TYPE=g1-small # n1-standard-1, n1-highmem-2
-      - NODE_IMAGE=ubuntu #cos, cosd, ubuntu
+      - NODE_TYPE=n1-standard-1
+      - NODE_IMAGE=cos
       - ClUSTER_FLAGS=--enable-network-policy
         --something else
-      # - VOLUMES_DIR=/deploy/kube/volumes/staging
-      # - TASK_DIR=/deploy/kube/jobs
-      # - RESOURCE_DIR=/deploy/kube/resources/staging
-    
